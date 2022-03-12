@@ -42,7 +42,7 @@ def generate_possibilities(code, num_correct, num_incorrect):
 
             # Assume number at position i to be correct
             possibility[i] = {str_num}
-            selected.add(remaining_positions)
+            selected.add(str_num)
             remaining_positions.discard(i)
 
             # Iterate through each number
