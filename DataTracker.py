@@ -49,7 +49,7 @@ class DataTracker:
     # Set a new list of possibilities
     def set_possibilities(self, possibilities):
         self.possibilities = possibilities
-        self.__refresh_possibilities
+        self.refresh_possibilities
 
     # Peek possibility at top of stack
     def get_possibility(self):
@@ -59,7 +59,7 @@ class DataTracker:
         self.possibilities.pop()
 
     # Remove possibility if there are no possibilities at a certain position
-    def __refresh_possibilities(self):
+    def refresh_possibilities(self):
         for possibility in self.possibilities:
             for pps in possibility:
                 if len(pps) == 0:
@@ -70,14 +70,12 @@ class DataTracker:
         for possibility in self.possibilities:
             possibility[position].discard(str_num)
 
-        self.__refresh_possibilities()
+        self.refresh_possibilities()
 
     def discard_number(self, str_num):
         list(map(lambda x: x.discard(str_num), self.position_possibilities))
         for possibility in self.possibilities:
             list(map(lambda x: x.discard(str_num), possibility))
-
-        self.__refresh_possibilities()
 
     # Return boolean specifying if attempt is unique
     def unique_attempt(self, code):

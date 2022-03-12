@@ -251,6 +251,8 @@ while True:
         if len(dt.get_possibilities()) > 1:
             dt.remove_possibility()
 
+        dt.refresh_possibilities()
+
     elif result_sum > max_sum:
         max_sum = result_sum
         num_correct = attempt_num_correct
