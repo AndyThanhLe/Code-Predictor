@@ -199,7 +199,7 @@ def make_prediction():
             # Set of possible numbers
             if str_num == '':
                 r = rows.pop()
-                focused_pps = possibility[i] & Services.row_code_set(r) - code_set
+                focused_pps = possibility[i].intersection(Services.row_code_set(r)) - code_set
 
                 if len(focused_pps) != 0:
                     code_num = dt.get_greatest_weight(focused_pps, i)
